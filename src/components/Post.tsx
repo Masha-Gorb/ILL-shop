@@ -27,6 +27,7 @@ export const MainFeed = (props: PostsPropsType) => {
             {props.posts.map(m => <StyledMainFeed>
                 <p>{m.postText}</p>
                 <p>test commit</p>
+                <p>test commit2</p>
                 <div>{m.theme}</div>
                 <LikeComponent/>
             </StyledMainFeed>)}
