@@ -4,7 +4,7 @@ type PostInputType = {
     AddPost: (newPostValue: string) => void
 }
 
-export const PostInput = (props: PostInputType) => {
+export const AddPostModalWindow = (props: PostInputType) => {
     const onClose = () => setModal(false)
     const [isModal, setModal] = React.useState(false)
 
@@ -18,18 +18,17 @@ export const PostInput = (props: PostInputType) => {
         onClose()
     }
 
-
     return (
         <div>
-            {/*<input value={newPostValue} onChange={AddPostHandler}/>*/}
-            {/*<button onClick={AddNewPost}>add post</button>*/}
-
             <React.Fragment>
                 <button onClick={() => setModal(true)}>+</button>
                 <Modal
                     visible={isModal}
                     title="Write new tech post!"
-                    content={<textarea value={newPostValue} onChange={AddPostHandler}>Дорогой дневник, мне не подобрать слов, чтобы описать боль и унижение, которое я испытал.</textarea>}
+                    content={<textarea
+                        value={newPostValue}
+                        onKeyPress={(e) => { if (e.charCode === 13) {AddNewPost()}}}
+                        onChange={AddPostHandler}>к</textarea>}
                     footer={<button onClick={AddNewPost}>Publish!</button>}
                     themeSelector={
                         <select>

@@ -27,13 +27,14 @@ const StyledMainFeed = styled.div`
 export const MainFeed = (props: PostsPropsType) => {
     return (
         <div>
-            {props.posts.map(m => <StyledMainFeed>
+            {props.posts.map(m =>
+                <StyledMainFeed>
                 <p>{m.postText}</p>
                 <div>{m.theme}</div>
+                    <div>{m.postTime}</div>
                 <LikeComponent/>
                 <button onClick={() => props.DeletePost(m.id)}>x</button>
             </StyledMainFeed>)}
-
         </div>
     )
 }
