@@ -3,11 +3,14 @@ import {LikeComponent} from "./LikeComponent";
 import styled from "styled-components";
 
 type PostPropsType = {
+    id: string
     postText: string
     theme: string
+    postTime: any
 }
 type PostsPropsType = {
     posts: Array<PostPropsType>
+    DeletePost: (id: string) => void
 }
 
 const StyledMainFeed = styled.div`
@@ -26,11 +29,11 @@ export const MainFeed = (props: PostsPropsType) => {
         <div>
             {props.posts.map(m => <StyledMainFeed>
                 <p>{m.postText}</p>
-                <p>test commit</p>
-                <p>test commit2</p>
                 <div>{m.theme}</div>
                 <LikeComponent/>
+                <button onClick={() => props.DeletePost(m.id)}>x</button>
             </StyledMainFeed>)}
+
         </div>
     )
 }
