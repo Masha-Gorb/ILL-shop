@@ -26,10 +26,10 @@ function App() {
     ]);
     let [filter, setFilter] = useState<FilterValuesType>('all')
 
-    let postTime = new Date().toUTCString()
+    let postTime = new Date().toString()
 
-    const AddPost = (newPostValue: string) => {
-        let newPost = {id: v1(), postText: newPostValue, theme: 'NoTheme', postTime: postTime}
+    const AddPost = (newPostValue: string, newPostThemeValue: string) => {
+        let newPost = {id: v1(), postText: newPostValue, theme: newPostThemeValue, postTime: postTime}
         setPosts([newPost,...posts])
         console.log(postTime)
     }
