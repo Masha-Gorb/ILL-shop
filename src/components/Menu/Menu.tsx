@@ -11,7 +11,6 @@ const StyledMenu = styled.div`
 export const Menu = () => {
     return (
         <StyledMenu>
-            here will be logo
             <MenuList/>
         </StyledMenu>
     )

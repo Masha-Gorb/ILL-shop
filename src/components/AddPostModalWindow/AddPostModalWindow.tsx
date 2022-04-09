@@ -1,5 +1,6 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, ReactNode, useState} from 'react';
 import {Modal} from "./Modal";
+import {FormControl, InputLabel, MenuItem, Select, SelectChangeEvent} from "@mui/material";
 type PostInputType = {
     AddPost: (newPostValue: string,  newPostThemeValue: string) => void
 }
@@ -11,8 +12,8 @@ export const AddPostModalWindow = (props: PostInputType) => {
     let [newPostValue, setPostValue] = useState('')
     let [newPostThemeValue, setNewPostThemeValue] = useState('')
 
-    const NewPostThemeValueHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        setNewPostThemeValue(e.currentTarget.value)
+    const NewPostThemeValueHandler = (e: SelectChangeEvent<string>, child: ReactNode) => {
+        setNewPostThemeValue(e.target.value as string)
     }
 
     const AddPostHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -39,11 +40,19 @@ export const AddPostModalWindow = (props: PostInputType) => {
                         onChange={AddPostHandler}>к</textarea>}
                     footer={<button onClick={AddNewPost}>Publish!</button>}
                     themeSelector={
-                        <select value={newPostThemeValue} onChange={NewPostThemeValueHandler}>
-                            <option value='React'>React</option>
-                            <option value='Native JS'>NativeJS</option>
-                            <option value='Other'>Other</option>
-                        </select>
+                        <FormControl fullWidth>
+                            <InputLabel id="demo-simple-select-label">Theme</InputLabel>
+                            <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={newPostThemeValue}
+                                label="Theme"
+                                onChange={NewPostThemeValueHandler}>
+                                <MenuItem value={'React'}>React</MenuItem>
+                                <MenuItem value={'Native JS'}>NativeJS</MenuItem>
+                                <MenuItem value={'Other'}>Other</MenuItem>
+                            </Select>
+                        </FormControl>
                 }
                     onClose={onClose}
                 />

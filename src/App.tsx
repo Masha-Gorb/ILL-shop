@@ -1,16 +1,15 @@
 import React, {useState} from 'react';
 import './App.css';
 import {MainFeed} from "./components/Main feed/MainFeed";
-import {AddPostModalWindow} from "./components/AddPostModalWindow";
+import {AddPostModalWindow} from "./components/AddPostModalWindow/AddPostModalWindow";
 import {Header} from "./components/Header/Header";
 import {v1} from "uuid";
 import {Menu} from "./components/Menu/Menu";
 import styled from "styled-components";
 
-const StyledApp = styled.div`
-  display: flex;
-  align-items: start;
-`
+// const StyledApp = styled.div`
+//   display: flex;
+// `
 export type FilterValuesType = "all" | 'React' | 'Native JS' | 'Other';
 
 function App() {
@@ -61,7 +60,7 @@ function App() {
     }
 
     return (
-    <StyledApp>
+    <div>
         <Menu/>
         <Header
             ChangeFilter={ChangeFilter}
@@ -74,7 +73,7 @@ function App() {
             posts={filtredPosts}
             DeletePost={DeletePost}
         />
-    </StyledApp>
+    </div>
   );
 }
 
