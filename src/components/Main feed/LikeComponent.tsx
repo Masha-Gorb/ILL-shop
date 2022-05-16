@@ -12,7 +12,6 @@ export const LikeComponent = () => {
         <div>
             {/*{likesCount}*/}
             <Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />} onClick={AddLikeHandler}/>
-
         </div>
     )
 }

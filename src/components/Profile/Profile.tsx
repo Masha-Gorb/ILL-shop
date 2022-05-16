@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from "styled-components";
 
-export const MainFeed = () => {
+export const Profile = () => {
   return (
     <div>
-
+      here will be profile page
     </div>
   )
 }

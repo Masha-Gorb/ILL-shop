@@ -3,32 +3,30 @@ import styled from "styled-components";
 import {FilterValuesType} from "../../App";
 
 type HeaderPropsType = {
-    ChangeFilter: (value: FilterValuesType) => void
+  ChangeFilter: (value: FilterValuesType) => void
 }
 
 const StyledHeader = styled.div`
   display: flex;
-  height: 50px;
-  background-color: darkslategrey;
+  height: 100px;
+  background-color: dimgray;
+  justify-content: center;
+  align-items: center;
 `
 
 const StyledThemeButton = styled.button`
-    width: 300pt;
-    background-color: #b4fce3;
-    border: solid 4pt darkslategrey;
-    font-size: 14pt;
-    color: darkslategrey;
-    margin-bottom: 2pt;
-    margin-top: 2pt;
+  width: 100px;
+  height: 50px;
+  font-size: 14px;
 `
 
 export const Header = (props: HeaderPropsType) => {
-    return (
-        <StyledHeader>
-            <StyledThemeButton onClick={() => props.ChangeFilter('Native JS')}>Native JS</StyledThemeButton>
-            <StyledThemeButton onClick={() => props.ChangeFilter('React')}>React</StyledThemeButton>
-            <StyledThemeButton onClick={() => props.ChangeFilter('Other')}>Other</StyledThemeButton>
-            <StyledThemeButton onClick={() => props.ChangeFilter('all')}>All</StyledThemeButton>
-        </StyledHeader>
-    )
+  return (
+    <StyledHeader>
+      <StyledThemeButton onClick={() => props.ChangeFilter('Native JS')}>Native JS</StyledThemeButton>
+      <StyledThemeButton onClick={() => props.ChangeFilter('React')}>React</StyledThemeButton>
+      <StyledThemeButton onClick={() => props.ChangeFilter('Other')}>Other</StyledThemeButton>
+      <StyledThemeButton onClick={() => props.ChangeFilter('all')}>All</StyledThemeButton>
+    </StyledHeader>
+  )
 }
