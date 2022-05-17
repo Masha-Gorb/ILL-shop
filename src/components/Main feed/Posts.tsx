@@ -4,6 +4,7 @@ import {LikeComponent} from "./LikeComponent";
 
 type PostPropsType = {
   id: string
+  author: string
   postText: string
   theme: string
   postTime: any
@@ -12,13 +13,15 @@ type PostsPropsType = {
   posts: Array<PostPropsType>
   DeletePost: (id: string) => void
 }
-const StyledPostContainer = styled.div`
+export const StyledPostContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #f3f3f3;
-    margin: 30px 30px 30px 30px;
+    background-color: #fff9ea;
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
 
 `
 const StyledPost = styled.div`
@@ -34,19 +37,20 @@ const StyledAddsToPost = styled.div`
 
 `
 
-export const Post = (props: PostsPropsType) => {
+export const Posts = (props: PostsPropsType) => {
   return (
     <StyledPostContainer>
       {props.posts.map(m =>
         <StyledPost>
+          <div>{m.author}</div>
           <p>{m.postText}</p>
           <StyledAddsToPost>
             <div>{m.theme}</div>
             <div>{m.postTime}</div>
             <LikeComponent/>
-            <button onClick={() => props.DeletePost(m.id)}>
-              Delete
-            </button>
+            {/*<button onClick={() => props.DeletePost(m.id)}>*/}
+            {/*  Delete*/}
+            {/*</button>*/}
           </StyledAddsToPost>
         </StyledPost>)}
     </StyledPostContainer>

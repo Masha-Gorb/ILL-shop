@@ -1,31 +1,28 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Post} from "./components/Main feed/Post";
-import {AddPostModalWindow} from "./components/AddPostModalWindow/AddPostModalWindow";
+import {Posts} from "./components/Main feed/Posts";
 import {Header} from "./components/Header/Header";
 import {v1} from "uuid";
-import styled from "styled-components";
+import {AddPostComponent} from "./components/AddPostComponent/AddPostComponent";
 
-// const StyledApp = styled.div`
-//   display: flex;
-// `
 export type FilterValuesType = "all" | 'React' | 'Native JS' | 'Other';
 
 function App() {
   let [posts, setPosts] = useState([
     {
       id: v1(),
+      author: 'Poline',
       postText: 'No fancy subscriptions or observables under the hood, just plain React state and props. By staying within the core React framework and away from magic, Formik makes debugging, testing, and reasoning about your forms a breeze. If you know React, and you know a bit about forms, you know Formik!',
       theme: 'React',
-      postTime: 'Fri Mar 11 2022 16:38:14 GMT+0300 (Moscow Standard Time)'
+      postTime: 'Fri Mar 11 2022 16:03'
     },
     {
-      id: v1(), postText: 'another post text about css',
-      theme: 'Other', postTime: 'Fri Mar 11 2022 16:38:14 GMT+0300 (Moscow Standard Time)'
+      id: v1(), author: 'Oleg', postText: 'another post text about css',
+      theme: 'Other', postTime: 'Fri Mar 11 2022 16:14'
     },
     {
-      id: v1(), postText: 'another post text about native',
-      theme: 'Native JS', postTime: 'Fri Mar 11 2022 16:38:14 GMT+0300 (Moscow Standard Time)'
+      id: v1(), author: 'Sasha', postText: 'another post text about native',
+      theme: 'Native JS', postTime: 'Fri Mar 11 2022 16:38'
     },
   ]);
   let [filter, setFilter] = useState<FilterValuesType>('all')
@@ -33,7 +30,7 @@ function App() {
   let postTime = new Date().toString()
 
   const AddPost = (newPostValue: string, newPostThemeValue: string) => {
-    let newPost = {id: v1(), postText: newPostValue, theme: newPostThemeValue, postTime: postTime}
+    let newPost = {id: v1(), author: 'No Name', postText: newPostValue, theme: newPostThemeValue, postTime: postTime}
     setPosts([newPost, ...posts])
     console.log(postTime)
   }
@@ -63,11 +60,9 @@ function App() {
       <Header
         ChangeFilter={ChangeFilter}
       />
-
-      <AddPostModalWindow
-        AddPost={AddPost}
-      />
-      <Post
+      <AddPostComponent
+        AddPost={AddPost}/>
+      <Posts
         posts={filtredPosts}
         DeletePost={DeletePost}
       />
