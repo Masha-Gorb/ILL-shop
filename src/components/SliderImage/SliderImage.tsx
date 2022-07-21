@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
+import {TestSlider} from "./TestSlider";
 
 const StyledSliderImage = styled.div`
   display: flex;
@@ -10,6 +11,7 @@ const StyledSliderImage = styled.div`
 export const SliderImage = () => {
   return (
     <StyledSliderImage>
+      {/*<TestSlider/>*/}
     </StyledSliderImage>
   )
 }
