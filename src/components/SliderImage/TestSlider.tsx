@@ -1,7 +1,4 @@
 import React, {useState, useEffect} from "react"
-import slide1 from '../../asserts/slides/slide1.png'
-import slide2 from '../../asserts/slides/slide2.png'
-import slide3 from '../../asserts/slides/slide3.png'
 import slide4 from '../../asserts/slides/slide4.png'
 import slide5 from '../../asserts/slides/slide5.png'
 import slide6 from '../../asserts/slides/slide6.png'
@@ -11,9 +8,6 @@ import s from '../SliderImage/TestSlider.module.css'
 
 export const TestSlider = () => {
   const img = [
-    <img alt={''} key={slide1} src={slide1} />,
-    <img alt={''} key={slide2} src={slide2} />,
-    <img alt={''} key={slide3} src={slide3} />,
     <img alt={''} key={slide4} src={slide4} />,
     <img alt={''} key={slide5} src={slide5} />,
     <img alt={''} key={slide6} src={slide6} />,

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
+import {Link} from "react-router-dom";
 
 const StyledHeader = styled.div`
   display: flex;
@@ -12,6 +13,10 @@ const StyledHeader = styled.div`
 export const Header = () => {
   return (
     <StyledHeader>
+
+      <button>
+        <Link to="/profile">Profile</Link>
+      </button>
 
     </StyledHeader>
   )
