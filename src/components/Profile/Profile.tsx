@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
-import {ShoppingCart} from "../ShoppingCart/ShoppingCart";
 import {Link} from "react-router-dom";
+import {Registration} from "./Registration/Registration";
 
 const StyledProfile = styled.div`
   display: flex;
@@ -17,10 +17,7 @@ export const Profile = () => {
         <button>
           <Link to="/main">Back to main</Link>
         </button>
-        <div>
-          <h2>here will be profile info</h2>
-        </div>
-        <ShoppingCart/>
+        <Registration/>
       </StyledProfile>
     </>
   )
