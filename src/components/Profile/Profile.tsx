@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import {Link} from "react-router-dom";
-import {Registration} from "./Registration/Registration";
+import {Login} from "./Login/Login";
 
 const StyledProfile = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ export const Profile = () => {
         <button>
           <Link to="/main">Back to main</Link>
         </button>
-        <Registration/>
+        <Login/>
       </StyledProfile>
     </>
   )

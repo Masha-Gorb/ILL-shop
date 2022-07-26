@@ -1,16 +1,16 @@
 import React from 'react';
 import {SubmitHandler, useForm} from "react-hook-form";
-import {RegistrationTypes} from "./RegistrationTypes";
 import {Button, Paper, TextField} from "@mui/material";
-import style from './Registration.module.css'
+import style from './Login.module.css'
 import {Link} from "react-router-dom";
+import {LoginTypes} from "./LoginTypes";
 
-export const Registration = () => {
-  const {register, handleSubmit, reset, formState: {errors}} = useForm<RegistrationTypes>({
+export const Login = () => {
+  const {register, handleSubmit, reset, formState: {errors}} = useForm<LoginTypes>({
     mode: 'onBlur'
   })
 
-  const onSubmit: SubmitHandler<RegistrationTypes> = (data) => {
+  const onSubmit: SubmitHandler<LoginTypes> = (data) => {
     alert(`Your email ${data.email} and your password is ${data.password}`)
     reset()
   }
@@ -18,7 +18,7 @@ export const Registration = () => {
     <div className={style.registration}>
       <Paper className={style.registrationPaper} elevation={2}>
         <div className={style.registrationPaperContainer}>
-          <h1 className={style.registerH1}>Sign Up</h1>
+          <h1 className={style.registerH1}>Sign In</h1>
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <TextField fullWidth label="Email"
@@ -51,12 +51,6 @@ export const Registration = () => {
             />
             {errors?.password && <span style={{color: 'red'}}>{errors.password.message}</span>}
 
-            <TextField fullWidth label="Confirm password"
-                       id="fullWidth"
-                       variant="standard"
-                       margin="normal"
-            />
-
             <Button variant="contained"
                     type='submit'
                     sx={{
@@ -70,13 +64,13 @@ export const Registration = () => {
             </Button>
           </form>
 
-          <span style={{color: 'gray', marginTop: 30, fontWeight: 'bold'}}>Already have an account?</span>
+          <span style={{color: 'gray', marginTop: 30, fontWeight: 'bold'}}>Don't have an account?</span>
           <Link style={{
             color: 'blue', marginTop: 10,
             backgroundColor: "transparent",
             boxShadow: "none"
-          }} to="/login">
-            Sign In
+          }} to="/registration">
+            Sign Up
           </Link>
         </div>
       </Paper>

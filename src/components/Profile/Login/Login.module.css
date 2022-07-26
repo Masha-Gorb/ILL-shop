@@ -1,0 +1,33 @@
+.registration {
+    display: flex;
+    justify-content: center;
+    height: 900px;
+}
+
+.registrationPaper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 413px;
+    height: 528px;
+    margin-top: 50px;
+}
+
+.registrationPaperContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+}
+
+.registerH1 {
+    display: flex;
+    margin-top: 35px;
+    font-size: 26px;
+}
+
+.registerFooter {
+    color: gray;
+    margin-top: 31px;
+}
